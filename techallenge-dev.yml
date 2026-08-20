@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: techallenge
+
+  # ===== DataSource =====
+  datasource:
+    url: jdbc:postgresql://localhost:5432/techallenge-db
+    username: ${DB_USR}
+    password: ${DB_PWD}
+    driver-class-name: org.postgresql.Driver
+
+  # ===== JPA (nivel correto: spring.jpa) =====
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+
+  # ===== ActiveMQ Classic — broker embedded via vm:// =====
+  activemq:
+    broker-url: vm://localhost?broker.persistent=false
+
+  # ===== JMS =====
+  jms:
+    pub-sub-domain: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: /tech-challenge
+
+# ===== Actuator =====
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,env
+  endpoint:
+    health:
+      show-details: always
+
+# ===== SpringDoc / Swagger =====
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
