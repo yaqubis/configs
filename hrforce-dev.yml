@@ -9,7 +9,7 @@ spring:
         secret-key: ${JWT_SECRET}
         expiration: 900000
   datasource:
-    url: jdbc:postgresql://localhost:5432/int-health-db
+    url: jdbc:postgresql://localhost:5432/hrforce
     username: ${DB_USR}
     password: ${DB_PWD}
     driver-class-name: org.postgresql.Driver
