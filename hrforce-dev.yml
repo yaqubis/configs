@@ -45,3 +45,5 @@ management:
         http:
           server:
             requests: true
+wallauth-api:
+  base-url: http://localhost:8084/wall-auth
